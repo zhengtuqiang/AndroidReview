@@ -19,9 +19,9 @@
 
 package com.vv.androidreview.ui.activites;
 
-import android.app.Activity;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTabHost;
 import android.util.TypedValue;
 import android.view.KeyEvent;
@@ -33,8 +33,8 @@ import android.widget.TextView;
 import com.vv.androidreview.R;
 import com.vv.androidreview.base.BaseActivity;
 import com.vv.androidreview.ui.fragment.Indicator;
+import com.vv.androidreview.ui.fragment.ReviewFragment;
 import com.vv.androidreview.utils.DoubleClickExitHelper;
-import com.vv.androidreview.utils.ToastHelper;
 
 public class MainActivity extends BaseActivity {
 
@@ -73,7 +73,22 @@ public class MainActivity extends BaseActivity {
         //去除底部按钮之间的分割线
         if (android.os.Build.VERSION.SDK_INT > 10) {
             mFragmentTabHost.getTabWidget().setShowDividers(0);
-
+            mFragmentTabHost.getTabWidget().getChildTabViewAt(0).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    for (Fragment fragment : getSupportFragmentManager().getFragments()) {
+                        if (fragment instanceof ReviewFragment) {
+                            if (fragment.isVisible()) {
+                                ((ReviewFragment)fragment).scrollToTop();
+                                // TODO: 2018/7/22 添加点击“复习”图标刷新的动画
+                                ((ReviewFragment) fragment).putToRefreshByUnit();
+                            } else {
+                                mFragmentTabHost.setCurrentTab(0);
+                            }
+                        }
+                    }
+                }
+            });
             mFragmentTabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
                 @Override
                 public void onTabChanged(String tabId) {

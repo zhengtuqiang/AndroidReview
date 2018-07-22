@@ -19,7 +19,6 @@
 
 package com.vv.androidreview.ui.fragment;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -28,13 +27,10 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 import com.vv.androidreview.R;
-import com.vv.androidreview.base.BaseActivity;
 import com.vv.androidreview.base.BaseFragment;
-import com.vv.androidreview.entity.Suggest;
 import com.vv.androidreview.ui.activites.AboutActivity;
 import com.vv.androidreview.ui.activites.CreateTableActivity;
 import com.vv.androidreview.ui.activites.ListActivity;
-import com.vv.androidreview.ui.activites.MainActivity;
 import com.vv.androidreview.ui.activites.SettingCacheActivity;
 import com.vv.androidreview.ui.activites.SuggestActivity;
 
@@ -52,7 +48,7 @@ public class SettingFragment extends BaseFragment{
 
         if (mRootView == null) {
             mRootView = inflater.inflate(R.layout.fragment_setting, container, false);
-            creatViews();
+            createViews();
         }
         //缓存的mRootView需要判断是否已经被加过parent， 如果有parent需要从parent删除，要不然会发生这个mRootView已经有parent的错误。
         ViewGroup parent = (ViewGroup) mRootView.getParent();
@@ -63,7 +59,7 @@ public class SettingFragment extends BaseFragment{
 
     }
 
-    private void creatViews() {
+    private void createViews() {
         mBtSuggest = (RelativeLayout) mRootView.findViewById(R.id.bt_suggest);
         mBtUpdate = (RelativeLayout) mRootView.findViewById(R.id.bt_update);
         mBtAbout = (RelativeLayout) mRootView.findViewById(R.id.bt_about);

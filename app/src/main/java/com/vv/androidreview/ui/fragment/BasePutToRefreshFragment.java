@@ -105,7 +105,7 @@ public abstract class BasePutToRefreshFragment<T extends BaseAdapter> extends Ba
         if (mRootView == null) {
             mRootView = getRootView();
             initArguments();
-            creatBaseViews();
+            createBaseViews();
             createViewsOrListener();
 
         }
@@ -119,7 +119,7 @@ public abstract class BasePutToRefreshFragment<T extends BaseAdapter> extends Ba
 
     }
     //创建 listView loadingView 并加入事件处理
-    private void creatBaseViews() {
+    private void createBaseViews() {
         initDoRefreshView();
         mListView = (ListView) mRootView.findViewById(R.id.listview);
         mLoadingLayout = (LoadingLayout) mRootView.findViewById(R.id.ly_loading);

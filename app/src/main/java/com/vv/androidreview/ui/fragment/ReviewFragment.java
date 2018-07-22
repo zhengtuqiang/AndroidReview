@@ -26,12 +26,12 @@ import android.view.View;
 import com.vv.androidreview.R;
 import com.vv.androidreview.adapter.ReviewListAdapter;
 import com.vv.androidreview.adapter.ReviewListAdapterGV;
-import com.vv.androidreview.entity.Point;
-import com.vv.androidreview.entity.Unit;
+import com.vv.androidreview.cache.CacheHelper;
 import com.vv.androidreview.cache.ReadCacheAsyncTask;
 import com.vv.androidreview.cache.SaveCacheAsyncTask;
+import com.vv.androidreview.entity.Point;
+import com.vv.androidreview.entity.Unit;
 import com.vv.androidreview.ui.view.LoadingLayout;
-import com.vv.androidreview.cache.CacheHelper;
 import com.vv.androidreview.utils.ToastHelper;
 
 import java.io.Serializable;
@@ -92,7 +92,7 @@ public class ReviewFragment extends BasePutToRefreshFragment<ReviewListAdapterGV
     /**
      * “单元”列表下拉刷新具体实现
      */
-    private void putToRefreshByUnit() {
+    public void putToRefreshByUnit() {
         //初始化Bmob查询类
         BmobQuery<Unit> query = new BmobQuery<>();
         //执行查询，查询单元表 取出所有单元
@@ -108,6 +108,10 @@ public class ReviewFragment extends BasePutToRefreshFragment<ReviewListAdapterGV
             }
         });
 
+    }
+
+    public void scrollToTop() {
+        mListView.smoothScrollToPosition(0);
     }
 
     private void requestPointByUnits(final List<Unit> unitList) {
