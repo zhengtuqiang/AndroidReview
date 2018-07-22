@@ -33,7 +33,7 @@ public class AppContext extends BaseApplication {
 
     private static AppContext instance;
 
-    private static final String ApplicationID = "这里输入你的Bmob ApplicationID";
+    private static final String ApplicationID = "f60dc4966e0dda9efeb4a303cc84a198";
 
     @Override
     public void onCreate() {

@@ -34,16 +34,15 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-
 import com.vv.androidreview.R;
 import com.vv.androidreview.base.BaseFragment;
-import com.vv.androidreview.entity.Test;
+import com.vv.androidreview.cache.CacheHelper;
 import com.vv.androidreview.cache.ReadCacheAsyncTask;
 import com.vv.androidreview.cache.SaveCacheAsyncTask;
+import com.vv.androidreview.entity.Test;
 import com.vv.androidreview.ui.activites.MainActivity;
 import com.vv.androidreview.ui.view.AnswerItem;
 import com.vv.androidreview.ui.view.LoadingLayout;
-import com.vv.androidreview.cache.CacheHelper;
 import com.vv.androidreview.utils.TDevice;
 
 import java.util.ArrayList;
@@ -108,7 +107,7 @@ public class TestFragment extends BaseFragment {
         if (mRootView == null) {
             mRootView = inflater.inflate(R.layout.fragment_test, container, false);
             //创建UI
-            creatViews();
+            createViews();
             //设置按钮点击事件
             setButtonListener();
             //读取网上题库并加载题目
@@ -123,7 +122,7 @@ public class TestFragment extends BaseFragment {
 
     }
 
-    private void creatViews() {
+    private void createViews() {
 
         //设置已做题目统计数
         mParentActivity.setTextCount(0);

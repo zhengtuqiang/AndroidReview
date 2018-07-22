@@ -22,10 +22,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/theme_color"
-    tools:context="com.vv.app.widget.AppStartActivity">
+    tools:context="com.vv.androidreview.ui.activites.AppStartActivity">
 
     <LinearLayout
-        android:gravity="center_horizontal"
         android:layout_centerInParent="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
